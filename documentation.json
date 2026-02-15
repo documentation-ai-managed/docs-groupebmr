@@ -1,12 +1,16 @@
 {
   "name": "Groupebmr",
-  "template": "classic",
+  "template": "atlas",
   "colors": {
     "light": {
-      "brand": "#3B82F6"
+      "brand": "#ff9c20",
+      "heading": "#1a1a1a",
+      "text": "#374151"
     },
     "dark": {
-      "brand": "#87B1F6"
+      "brand": "#ffcc01",
+      "heading": "#f2f2f2",
+      "text": "#c1c1c1"
     }
   },
   "navigation": {
@@ -116,5 +120,6 @@
         ]
       }
     ]
-  }
+  },
+  "logo-dark": "https://blob-cdn.documentation.ai/org-0cee72f5-7f9e-4129-be1a-50d3855e679c/doc-baf20ecf-27d6-41e4-941f-6001d9513bec/1771188015180-ej0g2konb39-Frame--1-.png?q=85&fm=auto&auto=compress%2Cformat"
 }
