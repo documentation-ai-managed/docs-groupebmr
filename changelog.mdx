@@ -1,0 +1,148 @@
+---
+title: Changelog
+description: Stay informed about the latest releases, new features, and improvements in Groupebmr.
+---
+
+## Recent Releases
+
+Stay up to date with the latest changes in Groupebmr. Review the release notes below to understand new features, improvements, and fixes.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for document editing, allowing multiple users to work simultaneously.
+- Introduced version history with diff views to track changes over time.
+- New search functionality with full-text indexing across all documents.
+
+## Improvements
+
+- Enhanced performance for large documentation spaces, reducing load times by 40%.
+- Improved mobile responsiveness for better viewing on tablets and phones.
+
+## Bug Fixes
+
+- Fixed issue where nested pages would not render correctly in table of contents.
+- Resolved authentication errors during session timeouts.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Customizable themes and branding options for documentation spaces.
+- Integrated export to PDF and Markdown formats.
+- Added webhook support for custom integrations.
+
+## Bug Fixes
+
+- Corrected sidebar navigation glitches on project reload.
+- Fixed markdown rendering for complex tables and code blocks.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core documentation organization with folders and tags.
+- Rich text editor with markdown support.
+- User permissions and role-based access control.
+
+## Breaking Changes
+
+- Updated API endpoints to use `https://api.example.com/v1/` prefix.
+
+</Update>
+
+## Version Summary
+
+| Version | Date       | Key Changes                  |
+|---------|------------|------------------------------|
+| v1.2.0  | 2024-10-15 | Collaboration, search        |
+| v1.1.0  | 2024-09-20 | Themes, exports              |
+| v1.0.0  | 2024-08-10 | Initial release              |
+
+<Callout kind="tip">
+Subscribe to our RSS feed or follow us on GitHub for instant notifications about new releases.
+</Callout>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade your Groupebmr instance to the latest version.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+    Create a full backup of your documentation space.
+
+````bash
+# Example backup command
+pg_dump groupebmr_prod > groupebmr_backup_$(date +%Y%m%d).sql
+````
+
+  </Step>
+  <Step title="Update Package" icon="package">
+
+    <Tabs>
+      <Tab title="npm" icon="nodejs">
+````bash
+npm install groupebmr@latest
+````
+      </Tab>
+      <Tab title="Docker" icon="docker">
+````bash
+docker pull groupebmr:latest
+docker-compose up -d
+````
+      </Tab>
+    </Tabs>
+
+  </Step>
+  <Step title="Run Migrations" icon="database">
+
+    Execute database migrations.
+
+````bash
+npm run migrate
+````
+
+  </Step>
+  <Step title="Verify" icon="check-circle">
+
+    Test your documentation space at `https://dashboard.example.com`.
+
+  </Step>
+</Steps>
+
+## Upcoming Changes
+
+<ExpandableGroup>
+  <Expandable title="v1.3.0 Preview (Q4 2024)" default-open="true">
+
+    Planned features include:
+
+    - AI-powered content suggestions.
+    - Advanced analytics for document usage.
+    - Native integrations with GitHub and Slack.
+
+  </Expandable>
+  <Expandable title="v2.0.0 Roadmap">
+
+    Major overhaul with:
+
+    - Multi-workspace support.
+    - Plugin ecosystem.
+
+  </Expandable>
+</ExpandableGroup>
+
+<Columns cols={2}>
+  <Card title="GitHub Releases" icon="github" href="https://github.com/groupebmr/releases" target="_blank">
+    View all releases and download assets.
+  </Card>
+  <Card title="Contribute" icon="code" href="/quickstart">
+    Learn how to report bugs or suggest features.
+  </Card>
+</Columns>

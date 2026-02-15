@@ -1,0 +1,152 @@
+---
+title: Integrations and Extensions
+description: Extend Groupebmr's functionality by connecting it with popular tools and services to fit into your existing workflow.
+---
+
+## Overview
+
+Connect Groupebmr to your favorite tools to automate workflows, receive real-time updates, and sync data seamlessly. Use built-in integrations for popular services, configure webhooks for custom notifications, export data for analysis, or build advanced solutions with the API.
+
+<Callout kind="tip">
+Review your integration permissions before connecting third-party apps to ensure secure data flow.
+</Callout>
+
+## Popular Integrations
+
+Groupebmr supports direct connections to common tools. Set them up from the dashboard integrations page.
+
+<Columns cols={3}>
+  <Card title="Slack" icon="message-circle" href="https://dashboard.example.com/integrations/slack">
+    Send project updates and alerts directly to your Slack channels.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://dashboard.example.com/integrations/github">
+    Sync repositories and automate issue tracking.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://dashboard.example.com/integrations/zapier">
+    Create no-code automations with thousands of apps.
+  </Card>
+</Columns>
+
+## Webhook Configurations
+
+Set up webhooks to receive real-time events from Groupebmr, such as project updates or user actions.
+
+<Steps>
+  <Step title="Create Webhook" icon="plus">
+    Navigate to Dashboard > Settings > Webhooks > New Webhook.
+    
+    Enter your endpoint URL, like `https://your-webhook-url.com/groupebmr`.
+  </Step>
+  <Step title="Select Events" icon="list">
+    Choose events: `project.updated`, `user.created`.
+  </Step>
+  <Step title="Verify and Test" icon="check-circle">
+    Test the webhook and verify the signature using the shared secret.
+  </Step>
+</Steps>
+
+Handle incoming payloads securely. Verify the signature to prevent tampering.
+
+<CodeGroup tabs="Node.js,Python">
+  ```javascript
+  const crypto = require('crypto');
+
+  function verifySignature(payload, signature, secret) {
+    const hmac = crypto.createHmac('sha256', secret);
+    const digest = 'sha256=' + hmac.update(payload).digest('hex');
+    return crypto.timingSafeEqual(
+      Buffer.from(signature),
+      Buffer.from(digest)
+    );
+  }
+  ```
+  ```python
+  import hmac
+  import hashlib
+
+  def verify_signature(payload, signature, secret):
+      expected = 'sha256=' + hmac.new(
+          secret.encode(), payload.encode(), hashlib.sha256
+      ).hexdigest()
+      return hmac.compare_digest(signature, expected)
+  ```
+</CodeGroup>
+
+## Export and Import Options
+
+Export your data for backups or analysis, and import from other tools.
+
+<Tabs>
+  <Tab title="CSV Export" icon="download">
+    Export projects and users as CSV files.
+    
+    ```
+    id,name,status
+    1,Project Alpha,active
+    2,Project Beta,completed
+    ```
+    
+    Use the dashboard export button or API.
+  </Tab>
+  <Tab title="JSON Import" icon="upload">
+    Import structured data via JSON.
+    
+    ```json
+    {
+      "projects": [
+        {"id": "proj_123", "name": "New Project"}
+      ]
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Custom Integrations via API
+
+For advanced use cases, integrate directly with the Groupebmr API at `https://api.example.com/v1`.
+
+<Request tabs="cURL,JavaScript">
+  ```
+  curl -X POST https://api.example.com/v1/integrations \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{"type": "custom", "config": {"url": "https://your-service.com"}}'
+  ```
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/integrations', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      type: 'custom',
+      config: { url: 'https://your-service.com' }
+    })
+  });
+  ```
+</Request>
+
+<Response tabs="200">
+  ```json
+  {
+    "id": "int_456",
+    "status": "active",
+    "config": {
+      "url": "https://your-service.com"
+    }
+  }
+  ```
+</Response>
+
+<ParamField path="config.url" param-type="string" required="true">
+  Your custom endpoint URL.
+</ParamField>
+
+<Expandable title="Advanced API Security" default-open="false">
+  Rotate API keys regularly and use IP restrictions. Monitor usage via dashboard logs.
+</Expandable>
+
+## Next Steps
+
+Explore the [API Reference](/api) for full endpoint details or check the [Quickstart](/quickstart) to get running quickly.
