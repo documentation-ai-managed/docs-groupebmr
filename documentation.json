@@ -14,110 +14,119 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Documentation",
-        "icon": "book",
-        "groups": [
+        "language": "fr",
+        "tabs": [
           {
-            "group": "Getting Started",
-            "icon": "rocket",
+            "tab": "Documentation",
+            "icon": "book",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "icon": "rocket",
+                "pages": [
+                  {
+                    "title": "Introduction",
+                    "path": "introduction",
+                    "icon": "home"
+                  },
+                  {
+                    "title": "Quickstart",
+                    "path": "quickstart",
+                    "icon": "zap"
+                  }
+                ]
+              },
+              {
+                "group": "Core Concepts",
+                "icon": "compass",
+                "pages": [
+                  {
+                    "title": "Features",
+                    "path": "features",
+                    "icon": "file-text"
+                  },
+                  {
+                    "title": "Integrations",
+                    "path": "integrations",
+                    "icon": "plug"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "icon": "code",
+            "groups": [
+              {
+                "group": "Endpoints",
+                "openapi": "api-reference/openapi.yaml",
+                "pages": []
+              }
+            ]
+          },
+          {
+            "tab": "Help Center",
+            "icon": "help-circle",
             "pages": [
               {
-                "title": "Introduction",
-                "path": "introduction",
+                "title": "Help Center",
+                "path": "help-center",
                 "icon": "home"
               },
               {
-                "title": "Quickstart",
-                "path": "quickstart",
-                "icon": "zap"
-              }
-            ]
-          },
-          {
-            "group": "Core Concepts",
-            "icon": "compass",
-            "pages": [
-              {
-                "title": "Features",
-                "path": "features",
-                "icon": "file-text"
+                "group": "FAQs",
+                "icon": "help-circle",
+                "expandable": false,
+                "pages": [
+                  {
+                    "title": "Account Access",
+                    "path": "help-center/faq/account-access"
+                  }
+                ]
               },
               {
-                "title": "Integrations",
-                "path": "integrations",
-                "icon": "plug"
+                "group": "Troubleshooting",
+                "icon": "alert-circle",
+                "expandable": false,
+                "pages": [
+                  {
+                    "title": "Cannot Upload Document",
+                    "path": "help-center/troubleshooting/cannot-upload-document"
+                  }
+                ]
+              },
+              {
+                "group": "Guides",
+                "icon": "book-open",
+                "expandable": false,
+                "pages": [
+                  {
+                    "title": "Create Project",
+                    "path": "help-center/guides/create-project"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Changelog",
+            "icon": "clock",
+            "pages": [
+              {
+                "title": "Release History",
+                "path": "changelog",
+                "icon": "history"
               }
             ]
           }
         ]
       },
       {
-        "tab": "API Reference",
-        "icon": "code",
-        "groups": [
-          {
-            "group": "Endpoints",
-            "openapi": "api-reference/openapi.yaml",
-            "pages": []
-          }
-        ]
-      },
-      {
-        "tab": "Help Center",
-        "icon": "help-circle",
-        "pages": [
-          {
-            "title": "Help Center",
-            "path": "help-center",
-            "icon": "home"
-          },
-          {
-            "group": "FAQs",
-            "icon": "help-circle",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Account Access",
-                "path": "help-center/faq/account-access"
-              }
-            ]
-          },
-          {
-            "group": "Troubleshooting",
-            "icon": "alert-circle",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Cannot Upload Document",
-                "path": "help-center/troubleshooting/cannot-upload-document"
-              }
-            ]
-          },
-          {
-            "group": "Guides",
-            "icon": "book-open",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Create Project",
-                "path": "help-center/guides/create-project"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "icon": "clock",
-        "pages": [
-          {
-            "title": "Release History",
-            "path": "changelog",
-            "icon": "history"
-          }
-        ]
+        "language": "en",
+        "pages": []
       }
     ]
   },
